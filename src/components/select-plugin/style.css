@@ -1,0 +1,106 @@
+$height: 46px;
+
+.select{
+    width: 100%;
+    position: relative;
+    z-index: 99;
+
+    &.open{
+        .select__dropdown{
+            display: block;
+        }
+        .select__input{
+            border-bottom: none;
+        }
+        .icon{
+            transform: rotateX(180deg);
+            
+        }
+        .select__backdrop{
+            display: block;
+        }
+    }
+
+    &__input{
+        cursor: pointer;
+        border: 1px solid #ccc;
+        height: $height; 
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 16px;
+        .text{
+            user-select: none;
+        }
+        .icon{
+            width: 18px;
+        }
+    }
+  
+    &__dropdown{
+        display: none;
+        position: absolute;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        top: $height;
+        left: 0;
+        right: 0;
+        max-height: 200px;
+        font-size: 14px; 
+        line-height: 19px;
+        overflow-y: auto;
+        box-shadow:  2px 3px 5px rgba(0,0,0, .3);
+
+        &::-webkit-scrollbar{
+            width: 7px;
+            background: rgba(255,255,255,0.3) 0 0 0 1px;
+        }
+        &::-webkit-scrollbar-track{
+            
+            background: #f1f1f1;
+        }
+        &::-webkit-scrollbar-thumb{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            background: #ccc;
+            border-radius: 10px;
+            box-shadow: rgba(255,255,255,0.3) 0 0 0 1px;
+        }
+        &::-webkit-scrollbar-thumb:hover{
+            background: rgba(0,0,0,0.55)
+        }
+    }
+
+    &__list{
+
+
+        &-item{
+            padding: 8px 16px;
+            cursor: pointer;
+            border-bottom: 1px solid #ccc;
+            user-select: none;
+
+            &.selected{
+                background-color: #e3e3e3;
+            }
+
+            &:hover{
+                background-color: #eee;
+                transition: background-color .15s ease-in;
+            }
+        }
+    }
+
+    &__backdrop{
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: transparent;
+        z-index: -1;
+    }
+    
+}
